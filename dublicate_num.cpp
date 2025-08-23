@@ -1,6 +1,6 @@
 // leetcode 287
 
-
+// direct code
 
 int slow = nums[0];
 int fast = nums[0];
