@@ -3,7 +3,7 @@
 #include <unordered_map>
 #include <stdexcept>
 
-// The converted function from above
+// This function is unchanged. Its logic is still correct.
 std::vector<int> twoSumHashing(const std::vector<int>& nums, int target) {
     std::unordered_map<int, int> map;
 
@@ -17,26 +17,34 @@ std::vector<int> twoSumHashing(const std::vector<int>& nums, int target) {
     throw std::invalid_argument("No two sum solution");
 }
 
+// The main function is updated to take input from the user.
 int main() {
-    std::vector<int> numbers = {2, 7, 11, 15};
-    int target = 9;
-
     try {
+        int n;
+        std::cout << "Enter the number of elements in the array: ";
+        std::cin >> n;
+
+        std::vector<int> numbers;
+        std::cout << "Enter " << n << " numbers separated by spaces: ";
+        for (int i = 0; i < n; ++i) {
+            int element;
+            std::cin >> element;
+            numbers.push_back(element);
+        }
+
+        int target;
+        std::cout << "Enter the target sum: ";
+        std::cin >> target;
+        
+        // Call the function with the user-provided data
         std::vector<int> result = twoSumHashing(numbers, target);
-        std::cout << "Indices found: [" << result[0] << ", " << result[1] << "]" << std::endl;
-    } catch (const std::invalid_argument& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-    }
-    
-    // Example that will throw an exception
-    std::vector<int> numbers2 = {3, 5, 8};
-    int target2 = 10;
+        
+        // Print the result
+        std::cout << "Success! Indices found: [" << result[0] << ", " << result[1] << "]" << std::endl;
 
-    try {
-        std::vector<int> result2 = twoSumHashing(numbers2, target2);
-        std::cout << "Indices found: [" << result2[0] << ", " << result2[1] << "]" << std::endl;
     } catch (const std::invalid_argument& e) {
-        std::cerr << "Error for second example: " << e.what() << std::endl;
+        // Catch the error if no solution is found
+        std::cerr << "Error: " << e.what() << std::endl;
     }
 
     return 0;
