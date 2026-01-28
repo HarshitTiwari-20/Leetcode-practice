@@ -34,3 +34,6 @@ public:
         
     }
 };
+
+
+// try to modify by b.shot()
