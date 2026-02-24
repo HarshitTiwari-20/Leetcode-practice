@@ -1,3 +1,8 @@
+#include <iosteam>
+#include vector
+
+
+
 class Solution {
   public:
     vector<int> findUnion(vector<int>& a, vector<int>& b) {
@@ -19,3 +24,8 @@ class Solution {
         return result;
     }
 };
+
+
+//------------------------------------------main
+//
+
