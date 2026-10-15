@@ -5,12 +5,10 @@ public:
         //sort(nums.begin(), nums.end());
         for( int i = 0; i < s -1; i++){
             if( nums[i] == target) {
-                return target;
+                return true;
             }
-            else {
-                return 0;
-            }
+            
         }
-        return target;
+        return false;
     }
 };
