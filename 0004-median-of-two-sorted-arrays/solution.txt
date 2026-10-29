@@ -1,0 +1,21 @@
+
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+      
+        vector<int>* A = &nums1;
+        vector<int>* B = &nums2;
+        
+        if (B->size() < A->size()) {
+            swap(A, B);
+        }
+        
+        int total = A->size() + B->size();
+        int half = total / 2;
+        
+        int l = 0;
+        int r = A->size() - 1;
+        
+        while (true) {
+            int sum = l + r;
+            int i = (sum < 0) ? (sum - 1) /
