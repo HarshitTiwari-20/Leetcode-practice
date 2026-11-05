@@ -1,23 +1,19 @@
- + 1;
-
-                if ( currL < minL){
+  if (currL < minL) {
                     minL = currL;
                     start = left;
                 }
+
                 unsigned char leftChar = s[left];
                 window[leftChar]--;
 
-                if(need[leftChar] > 0 && window[leftChar]){
+                if (need[leftChar] > 0 && window[leftChar] < need[leftChar]) {
                     match--;
                 }
-                if (start == -1) {
-                    return "";
-                }
- 
                 
+                left++; 
             }
-            
-        }
-        return s.substr(start, minL);
-    }
+        } // Closes the for(right) loop correctly
+
+        return minL == INT_MAX ? "" : s.substr(start, minL);    
+    } 
 };
