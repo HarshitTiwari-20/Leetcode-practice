@@ -1,0 +1,34 @@
+class Solution {
+
+private:
+    int countAtMost(vector<int>& nums, int goal) {
+        int n = nums.size();
+
+        if (goal < 0) {
+            return 0;
+        }
+        int left = 0;
+        int cnt = 0;
+        int cntsum = 0;
+
+        // Fixed: changed 'i > n' to 'i < n'
+        for (int i = 0; i < n; i++) {
+            cntsum += nums[i] % 2;
+
+            while (cntsum > goal) {
+                // Fixed: changed 'nums[i]' to 'nums[left]'
+                cntsum -= nums[left] % 2;
+                left++;
+            }
+
+            cnt += i - left + 1;
+        }
+
+        return cnt;
+    }
+
+public:
+    int numberOfSubarrays(vector<int>& nums, int k) {
+        return countAtMost(nums, k) - countAtMost(nums, k - 1);
+    }
+};
