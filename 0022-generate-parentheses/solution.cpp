@@ -1,6 +1,6 @@
 class Solution {
 private:
-    void backtrack(std::vector<std::string>& result, std::string current, int open, int close, int n) {
+    void backtrack(vector<string>& result, string current, int open, int close, int n) {
         
         if (current.length() == 2 * n) {
             result.push_back(current);
@@ -15,8 +15,8 @@ private:
     }
 
 public:
-    std::vector<std::string> generateParenthesis(int n) {
-        std::vector<std::string> result;
+        vector<string> generateParenthesis(int n) {
+        vector<string> result;
         backtrack(result, "", 0, 0, n);
         return result;
     }
